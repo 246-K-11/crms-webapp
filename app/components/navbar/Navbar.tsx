@@ -6,7 +6,7 @@ import SignInButton from "./SignIn";
 const Navbar = () => {
   return (
     <>
-      <div className="w-full h-20 bg-gray-300 -800 sticky top-0">
+      <div className="w-full h-24 bg-gray-300 -800 sticky top-0">
         <div className="container mx-auto px-4 h-full">
           <div className="md:flex justify-start items-center h-full">
             <Logo />
