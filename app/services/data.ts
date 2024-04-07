@@ -66,6 +66,7 @@ const RandomNames = [
   "Stephen",
   "Gerrard",
   "Adewale",
+  "Rose Blake",
 ];
 
 // Generate 50 sample profiles
@@ -81,7 +82,7 @@ for (let i = 1; i <= RandomNames.length; i++) {
           : "Fullstack Developer",
       email: `${RandomNames[i].toLowerCase()}@example.com`,
       username: `user${RandomNames[i].toLowerCase()}_username`,
-      photo: `https://source.unsplash.com/random/200x200?sig=${i}`,
+      photo: `https://source.unsplash.com/random/1000x1000?sig=${i}`,
     };
     data.push(profile);
   } else {
