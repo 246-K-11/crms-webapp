@@ -5,9 +5,8 @@ export default function Home() {
   return (
     <main>
       <div>
-        <Carousel />
+        <HomeLayout />
       </div>
-      <HomeLayout />
     </main>
   );
 }
