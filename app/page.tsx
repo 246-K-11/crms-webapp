@@ -1,5 +1,5 @@
 import HomeLayout from "./components/HomepageCards/HomeLayout";
-import Carousel from "./components/HomepageCards/HomeCarousel";
+import GetAll from "./services/GetAll";
 
 export default function Home() {
   return (

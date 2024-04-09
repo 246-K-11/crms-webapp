@@ -12,18 +12,18 @@ const Navbar = () => {
             <Logo />
             <ul className="hidden md:flex justify-end gap-x-7 pl-64 ml-96 text-black">
               <li>
-                <Link href="/page1">
-                  <p>About Us</p>
+                <Link href="/Customers">
+                  <p>Customers</p>
                 </Link>
               </li>
               <li>
-                <Link href="/page2">
-                  <p>Services</p>
+                <Link href="/Vehicles">
+                  <p>Vehicles</p>
                 </Link>
               </li>
               <li>
-                <Link href="/page3">
-                  <p>Contacts</p>
+                <Link href="/Reports">
+                  <p>Reports</p>
                 </Link>
               </li>
             </ul>
