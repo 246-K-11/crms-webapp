@@ -1,27 +1,12 @@
 "use client";
 import { useState, useEffect } from "react";
 
-const GetAll = () => {
+function GetAll() {
   const [allCustomers, setAllCustomers] = useState([]);
   useEffect(() => {
-    const options = {
-      "content-type": "application/json",
-    };
-    fetch("http://localhost/api/customers/all.php", options)
-      .then((response) => response.json)
-      .then((response) => {
-        console.warn(response);
-        const theCustomers = response.map((customers) => {
-          return (
-            <li key={customers.CID}>
-              {customers.Firstname}, {customers.Lastname}
-            </li>
-          );
-        });
-        console.debug(theCustomers);
-        // setBooksLoaded(true)
-        setAllCustomers(theCustomers);
-      })
+    fetch("http://localhost/api/customers/all.php")
+      .then((response) => response.json())
+      .then((theCustomers) => setAllCustomers(theCustomers.records[21]))
       .catch((err) => console.error(err));
   }, []);
 
@@ -29,11 +14,11 @@ const GetAll = () => {
     <main>
       <h1>All Customers</h1>
       <div>
-        {allCustomers}
+        {allCustomers.Firstname}
         {/* {theCustomers} */}
       </div>
     </main>
   );
-};
+}
 
 export default GetAll;
