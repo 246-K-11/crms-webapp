@@ -9,7 +9,9 @@ const Navbar = () => {
       <div className="w-full h-24 bg-gray-300 -800 sticky top-0">
         <div className="container mx-auto px-4 h-full">
           <div className="md:flex justify-start items-center h-full">
-            <Logo />
+            <Link href="/">
+              <Logo />
+            </Link>
             <ul className="hidden md:flex justify-end gap-x-7 pl-64 ml-96 text-black">
               <li>
                 <Link href="/Customers">

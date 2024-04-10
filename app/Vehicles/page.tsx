@@ -1,7 +1,7 @@
 import React from "react";
-
+import GetAllVehicles from "../services/AllVehicleData";
 const Vehicles = () => {
-  return <div>Vehicle Page</div>;
+  return <GetAllVehicles />;
 };
 
 export default Vehicles;

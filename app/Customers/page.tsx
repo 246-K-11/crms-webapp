@@ -1,7 +1,7 @@
 import React from "react";
-import GetAll from "../services/GetAll";
+import GetAllCustomers from "../services/AllCustomersData";
 const Customers = () => {
-  return <GetAll />;
+  return <GetAllCustomers />;
 };
 
 export default Customers;

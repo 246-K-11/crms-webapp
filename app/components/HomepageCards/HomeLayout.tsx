@@ -17,6 +17,7 @@ const HomeLayout = () => {
   // Now get the query
 
   const searchQuery = searchParams && searchParams.get("q"); // we use `q` to set the query to the browser, it could be anything
+  const [profileData, setProfileData] = useState<iProfile[]>([]);
 
   useEffect(() => {
     const handleSearch = () => {
@@ -25,7 +26,7 @@ const HomeLayout = () => {
       const findUser = data.filter((user) => {
         if (searchQuery) {
           return (
-            user.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            user.name.includes(searchQuery.toLowerCase()) ||
             user.role.toLowerCase().includes(searchQuery.toLowerCase()) ||
             user.username.toLowerCase().includes(searchQuery.toLowerCase()) ||
             user.email.toLowerCase().includes(searchQuery.toLowerCase())
@@ -47,8 +48,6 @@ const HomeLayout = () => {
     handleSearch();
   }, [searchQuery]); // Only rerun the effect if searchQuery chan
   // initialize useState for the data
-
-  const [profileData, setProfileData] = useState<iProfile[]>([]);
 
   useEffect(() => {
     // will be updated soon
