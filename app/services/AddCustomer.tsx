@@ -1,24 +1,5 @@
 "use client";
 import { useState } from "react";
-export const [storedData, setstoredData] = useState({
-  Firstname: "",
-  Lastname: "",
-  Address: "",
-  Email_Address: "",
-  Phone_Number: "",
-  Driver_License_Number: "",
-  Province_Of_Issue: "",
-  License_Expiration_Date: "",
-  Card_Number: "",
-  Billing_Address: "",
-  Card_Expiration_Date: "",
-
-  // optionals
-  Vehicle_Make: "",
-  Rental_Duration: "",
-  Pick_Up_Location: "",
-  Drop_Off_Location: "",
-});
 
 const AddCustomer = () => {
   const [msg, setMsg] = useState<any | null>(null);
@@ -74,7 +55,6 @@ const AddCustomer = () => {
       ...formData,
       [e.target.id]: e.target.value,
     });
-    setstoredData({ ...storedData, [e.target.id]: e.target.value });
   };
 
   return (
