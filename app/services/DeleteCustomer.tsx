@@ -27,7 +27,7 @@ const DeleteCustomer = () => {
   };
 
   const handleChange = (e: any) => {
-    if (e.target.id == "CID") {
+    if (e.target.id == "id") {
       if (isNaN(e.target.value)) {
         console.warn("ID entered incorrectly, not a number");
         e.target.className = "inputError";

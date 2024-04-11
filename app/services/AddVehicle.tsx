@@ -9,9 +9,9 @@ const AddVehicle = () => {
     VID: "",
     Color: "",
     License_Plate: "",
-    Odometer_Reading: 0,
-    Rate: 0,
-    Availability: 0,
+    Odometer_Reading: "",
+    Rate: "",
+    Availability: "",
   });
 
   const handleAddVehicle = (e: any) => {
@@ -32,6 +32,8 @@ const AddVehicle = () => {
         setMsg(result);
       })
       .catch((err) => console.error(err));
+
+    console.log(request);
   };
 
   const handleChange = (e: any) => {
@@ -88,19 +90,19 @@ const AddVehicle = () => {
               onChange={handleChange}
             />
             <input
-              type="number"
+              type="text"
               id="Odometer_Reading"
               placeholder="Odometer Count on Vehicle"
               onChange={handleChange}
             />
             <input
-              type="number"
+              type="text"
               id="Rate"
               placeholder="Rate of Vehicle rental"
               onChange={handleChange}
             />
             <input
-              type="number"
+              type="text"
               id="Availability"
               placeholder="Availability of Vehicle, 0 = Unavailable, 1 = available"
               onChange={handleChange}

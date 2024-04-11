@@ -36,15 +36,20 @@ function GetAllVehicles() {
                   </div>
                   <p className="mt-1 truncate text-sm text-gray-500">
                     License Plate: {vehicleInfo.License_Plate}
+                  </p>
+                  <p className="mt-1 truncate text-sm text-gray-500">
                     Color: {vehicleInfo.Color}
+                  </p>
+                  <p className="mt-1 truncate text-sm text-gray-500">
                     Rate: {vehicleInfo.Rate}
                   </p>
                 </div>
                 <img
                   className="h-10 w-10 flex-shrink-0 rounded-full bg-gray-300"
                   src={
-                    "https://api.dicebear.com/8.x/micah/svg?seed=" +
-                    vehicleInfo.Make
+                    "https://www.auto-data.net/img/logos/" +
+                    vehicleInfo.Make +
+                    ".png"
                   }
                   alt="avatar"
                 />
@@ -61,7 +66,7 @@ function GetAllVehicles() {
                       <path d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z" />
                       <path d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z" />
                     </svg>
-                    Odometer Reading: {vehicleInfo.Odometer_Reading}
+                    Odometer Reading: {vehicleInfo.Odometer_Reading} km
                   </div>
                   <div className="-ml-px flex w-0 flex-1">
                     <svg
