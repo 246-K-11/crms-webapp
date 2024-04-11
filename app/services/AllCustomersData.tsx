@@ -18,25 +18,18 @@ function GetAllCustomers() {
       .then((theCustomers) => setAllCustomers(theCustomers.records))
       .catch((err) => console.error(err));
   }, []);
-  const listcustomers = allCustomers.map((customerinfo: any) => (
-    <div key={customerinfo.CID}>
-      <p className="rounded-[10px] border border-solid mt-10 mb-20 bg-slate-200">
-        {customerinfo.CID}, {customerinfo.Firstname}, {customerinfo.Lastname},{" "}
-        {customerinfo.Email_Address}, {customerinfo.Phone_Number},{" "}
-        {customerinfo.Driver_License_Number}
-      </p>
-    </div>
-  ));
 
   return (
     <main>
-      <h1>Total Customers: {allCustomers.length}</h1>
+      <h1 className="mt-10 ml-4 pl-4 bg-slate-300 rounded-lg w-80">
+        Total Customers: {allCustomers.length}
+      </h1>
       <div className="bg-white px-4 py-12 sm:px-6 lg:px-8">
         <ul
           role="list"
           className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
         >
-          {allCustomers.map((customerInfo) => (
+          {allCustomers.map((customerInfo: any) => (
             <li
               key={customerInfo.CID}
               className="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow"
@@ -66,7 +59,7 @@ function GetAllCustomers() {
                 <div className="-mt-px flex divide-x divide-gray-200">
                   <div className="flex w-0 flex-1">
                     <a
-                      href={customerInfo.Email_Address}
+                      href={"mailto:" + customerInfo.Email_Address}
                       className="relative -mr-px inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-bl-lg border border-transparent py-4 text-sm font-semibold text-gray-900"
                     >
                       <svg
@@ -83,7 +76,10 @@ function GetAllCustomers() {
                   </div>
                   <div className="-ml-px flex w-0 flex-1">
                     <a
-                      href={"tel:" + formatPhone(customerInfo.Phone_Number)}
+                      href={
+                        "tel:" +
+                        formatPhone(customerInfo.Phone_Number.toString())
+                      }
                       className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-4 text-sm font-semibold text-gray-900"
                     >
                       <svg
@@ -98,7 +94,7 @@ function GetAllCustomers() {
                           clip-rule="evenodd"
                         />
                       </svg>
-                      Call: {formatPhone(customerInfo.Phone_Number)}
+                      Call: {formatPhone(customerInfo.Phone_Number.toString())}
                     </a>
                   </div>
                 </div>
