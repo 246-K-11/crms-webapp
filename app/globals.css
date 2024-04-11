@@ -33,3 +33,7 @@ body {
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
 }
+
+.inputError {
+  border: 5px solid red;
+}
