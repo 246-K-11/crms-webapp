@@ -1,7 +1,17 @@
 import React from "react";
-import GetAllVehicles from "../services/AllVehicleData";
+import GetAllVehicles from "../services/AllVehiclesData";
+import AddVehicle from "../services/AddVehicle";
 const Vehicles = () => {
-  return <GetAllVehicles />;
+  return (
+    <main>
+      <div>
+        <AddVehicle />
+      </div>
+      <div>
+        <GetAllVehicles />;
+      </div>
+    </main>
+  );
 };
 
 export default Vehicles;
