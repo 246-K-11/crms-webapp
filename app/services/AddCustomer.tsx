@@ -6,19 +6,19 @@ const AddCustomer = () => {
   const [formData, setFormData] = useState({
     Firstname: "",
     Lastname: "",
-    Address: " ",
-    Email_Address: " ",
-    Phone_Number: 0,
-    Driver_License_Number: 0,
-    Province_Of_Issue: " ",
+    Address: "",
+    Email_Address: "",
+    Phone_Number: "",
+    Driver_License_Number: "",
+    Province_Of_Issue: "",
     License_Expiration_Date: "",
-    Card_Number: 0,
-    Billing_Address: " ",
-    Card_Expiration_Date: " ",
+    Card_Number: "",
+    Billing_Address: "",
+    Card_Expiration_Date: "",
 
     // optionals
     Vehicle_Make: "",
-    Rental_Duration: 0,
+    Rental_Duration: "",
     Pick_Up_Location: "",
     Drop_Off_Location: "",
   });
@@ -111,7 +111,7 @@ const AddCustomer = () => {
             <input
               type="text"
               id="License_Expiration_Date"
-              placeholder="Customer's License Expiration Date"
+              placeholder="Customer's License Expiration Date: Formatted(y-m-d) "
               onChange={handleChange}
             />
             <input
@@ -129,7 +129,7 @@ const AddCustomer = () => {
             <input
               type="text"
               id="Card_Expiration_Date"
-              placeholder="Customer Card Expiration Date"
+              placeholder="Customer Card Expiration Date: Formatted(y-m-d) "
               onChange={handleChange}
             />
             <input
