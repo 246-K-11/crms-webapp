@@ -19,13 +19,28 @@ const formatPhone = (number: string) => {
   return finalPhone;
 };
 
+
+
 function GetAllCustomers() {
   const [allCustomers, setAllCustomers] = useState<any | []>([]);
+  const [filteredCustomers, setFilteredCustomers] = useState<any | []>([]);
+
+  function searchCustomer(e: any) {
+    const value = e.target.value;
+    const filtered = allCustomers.filter((customer: any) => {
+      return customer.Lastname.toLowerCase().includes(value.toLowerCase()) || customer.Firstname.toLowerCase().includes(value.toLowerCase());
+
+    });
+    setFilteredCustomers(filtered);
+  }
   useEffect(() => {
     fetch("http://localhost/api/customers/all.php", { method: "GET" })
       .then((response) => response.json())
       /*theCustomers takes on the value of response.json and function setAllCustomers appends each record, from the records key of the json, to allCustomers */
-      .then((theCustomers) => setAllCustomers(theCustomers.records))
+      .then((theCustomers) => {
+        setAllCustomers(theCustomers.records)
+        setFilteredCustomers(theCustomers.records);
+      })
       .catch((err) => console.error(err));
   }, []);
 
@@ -34,12 +49,41 @@ function GetAllCustomers() {
       <h1 className="mt-10 ml-4 pl-4 bg-slate-300 rounded-lg w-80">
         Total Customers: {allCustomers.length}
       </h1>
+      <div className="m-3 md:w-96">
+        <div className="relative mb-4 flex w-full flex-wrap items-stretch">
+          <input
+            type="search"
+            className="relative m-0 -mr-0.5 block w-[1px] min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
+            placeholder="Search Customers"
+            aria-label="Search"
+            aria-describedby="button-addon1"
+            onChange={searchCustomer} />
+
+
+          {/* <!--Search button--> */}
+          <button
+            className="relative z-[2] flex items-center rounded-r bg-blue-600 px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg"
+            type="button"
+            id="button-addon1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="#ffffff"
+              className="h-5 w-5">
+              <path
+                fillRule="evenodd"
+                d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
+                clipRule="evenodd" />
+            </svg>
+          </button>
+        </div>
+      </div>
       <div className="bg-white px-4 py-12 sm:px-6 lg:px-8">
         <ul
           role="list"
           className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
         >
-          {allCustomers.map((customerInfo: any) => (
+          {filteredCustomers.map((customerInfo: any) => (
             <li
               key={customerInfo.CID}
               className="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow"
@@ -64,6 +108,7 @@ function GetAllCustomers() {
                   }
                   alt="avatar"
                 />
+                <a href={"/Rentals/Register?id=" + customerInfo.CID}>Make a rental</a>
               </div>
               <div>
                 <div className="-mt-px flex divide-x divide-gray-200">
@@ -116,5 +161,7 @@ function GetAllCustomers() {
     </main>
   );
 }
+
+
 
 export default GetAllCustomers;
