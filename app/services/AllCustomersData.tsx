@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 export interface CustomerProfile {
   CID: string;
   Lastname: string;
@@ -102,13 +103,13 @@ function GetAllCustomers() {
                 </div>
                 <img
                   className="h-10 w-10 flex-shrink-0 rounded-full bg-gray-300"
-                  src={
-                    "https://api.dicebear.com/8.x/micah/svg?seed=" +
-                    customerInfo.Firstname
-                  }
+                  src={"https://api.dicebear.com/8.x/micah/svg?seed=" + customerInfo.Firstname}
                   alt="avatar"
                 />
-                <a href={"/Rentals/Register?id=" + customerInfo.CID}>Make a rental</a>
+                <Link href={{
+                  pathname: '/Rentals/Register',
+                  query: { id: customerInfo.CID, name: customerInfo.Lastname + ", " + customerInfo.Firstname }
+                }} >Make a rental</Link>
               </div>
               <div>
                 <div className="-mt-px flex divide-x divide-gray-200">
