@@ -1,15 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-export interface CustomerProfile {
-  CID: string;
-  Lastname: string;
-  Firstname: string;
-  Driver_License_Number: number;
-  Email_Address: string;
-  Phone_Number: string;
-}
-
-export const customerData: CustomerProfile[] = [];
 
 const formatPhone = (number: string) => {
   let finalPhone = `(${number.substring(0, 3)}) ${number.substring(
@@ -19,8 +9,6 @@ const formatPhone = (number: string) => {
   return finalPhone;
 };
 
-
-
 function GetAllCustomers() {
   const [allCustomers, setAllCustomers] = useState<any | []>([]);
   const [filteredCustomers, setFilteredCustomers] = useState<any | []>([]);
@@ -28,17 +16,20 @@ function GetAllCustomers() {
   function searchCustomer(e: any) {
     const value = e.target.value;
     const filtered = allCustomers.filter((customer: any) => {
-      return customer.Lastname.toLowerCase().includes(value.toLowerCase()) || customer.Firstname.toLowerCase().includes(value.toLowerCase());
-
+      return (
+        customer.Lastname.toLowerCase().includes(value.toLowerCase()) ||
+        customer.Firstname.toLowerCase().includes(value.toLowerCase())
+      );
     });
     setFilteredCustomers(filtered);
   }
+  /*After setFilteredCustomers is called, page re-renders and triggers a call to this useEffect, this allows filteredcustomers to map all records when search is empty*/
   useEffect(() => {
     fetch("http://localhost/api/customers/all.php", { method: "GET" })
       .then((response) => response.json())
-      /*theCustomers takes on the value of response.json and function setAllCustomers appends each record, from the records key of the json, to allCustomers */
+      /*theCustomers takes on the value of response.json and function setAllCustomers & setFilteredCustomer appends each record, from the records key of the json, to allCustomers */
       .then((theCustomers) => {
-        setAllCustomers(theCustomers.records)
+        setAllCustomers(theCustomers.records);
         setFilteredCustomers(theCustomers.records);
       })
       .catch((err) => console.error(err));
@@ -57,23 +48,27 @@ function GetAllCustomers() {
             placeholder="Search Customers"
             aria-label="Search"
             aria-describedby="button-addon1"
-            onChange={searchCustomer} />
-
+            onChange={searchCustomer}
+          />
 
           {/* <!--Search button--> */}
           <button
             className="relative z-[2] flex items-center rounded-r bg-blue-600 px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg"
             type="button"
-            id="button-addon1">
+            id="button-addon1"
+            onClick={searchCustomer}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
               fill="#ffffff"
-              className="h-5 w-5">
+              className="h-5 w-5"
+            >
               <path
                 fillRule="evenodd"
                 d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
-                clipRule="evenodd" />
+                clipRule="evenodd"
+              />
             </svg>
           </button>
         </div>
@@ -94,7 +89,6 @@ function GetAllCustomers() {
                     <h3 className="truncate text-sm font-medium text-gray-900">
                       {customerInfo.Lastname}, {customerInfo.Firstname}
                     </h3>
-                    {/* <span className="inline-flex flex-shrink-0 items-center rounded-full bg-green-50 px-1.5 py-0.5 text-xs font-medium text-blue-600 ring-1 ring-inset ring-green-600/20">Creator</span> */}
                   </div>
                   <p className="mt-1 truncate text-sm text-gray-500">
                     Driver License: {customerInfo.Driver_License_Number}
@@ -108,7 +102,9 @@ function GetAllCustomers() {
                   }
                   alt="avatar"
                 />
-                <a href={"/Rentals/Register?id=" + customerInfo.CID}>Make a rental</a>
+                <a href={"/Rentals/Register?id=" + customerInfo.CID}>
+                  Make a rental
+                </a>
               </div>
               <div>
                 <div className="-mt-px flex divide-x divide-gray-200">
@@ -161,7 +157,5 @@ function GetAllCustomers() {
     </main>
   );
 }
-
-
 
 export default GetAllCustomers;

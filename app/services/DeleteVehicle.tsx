@@ -36,7 +36,7 @@ const DeleteVehicle = () => {
   return (
     <>
       {!msg ? (
-        <div className="mt-20">
+        <div className="mt-10 mb-10 ml-4">
           <form
             onSubmit={handleDeleteVehicle}
             className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3"
@@ -48,11 +48,7 @@ const DeleteVehicle = () => {
               placeholder="Enter the ID of the Vehicle to be deleted"
               onChange={handleChange}
             />
-            <input
-              className="bg-slate-400"
-              type="submit"
-              value="Delete Vehicle"
-            />
+            <input className="delButton" type="submit" value="Delete Vehicle" />
           </form>
         </div>
       ) : (

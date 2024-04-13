@@ -56,58 +56,65 @@ const AddVehicle = () => {
         <div>
           <form
             onSubmit={handleAddVehicle}
-            className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3"
+            className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 ml-2 mt-2  border-sold border-2 border-slate-500 rounded p-5"
           >
             <input
-              className="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow"
+              className="col-span-1 divide-y divide-gray-200 rounded-sm bg-white shadow-md"
               type="text"
               id="Make"
               placeholder="Enter Vehicle Make"
               onChange={handleChange}
             />
             <input
+              className="col-span-1 divide-y divide-gray-200 rounded-sm bg-white shadow-md"
               type="text"
               id="Model"
               placeholder="Enter Vehicle Model"
               onChange={handleChange}
             />
             <input
+              className="col-span-1 divide-y divide-gray-200 rounded-sm bg-white shadow-md"
               type="text"
               id="VID"
               placeholder="Vehicle's Unique ID #"
               onChange={handleChange}
             />
             <input
+              className="col-span-1 divide-y divide-gray-200 rounded-sm bg-white shadow-md"
               type="text"
               id="Color"
               placeholder="Vehicle Colour"
               onChange={handleChange}
             />
             <input
+              className="col-span-1 divide-y divide-gray-200 rounded-sm bg-white shadow-md"
               type="text"
               id="License_Plate"
               placeholder="Vehicle License Plate"
               onChange={handleChange}
             />
             <input
+              className="col-span-1 divide-y divide-gray-200 rounded-sm bg-white shadow-md"
               type="text"
               id="Odometer_Reading"
               placeholder="Odometer Count on Vehicle"
               onChange={handleChange}
             />
             <input
+              className="col-span-1 divide-y divide-gray-200 rounded-sm bg-white shadow-md"
               type="text"
               id="Rate"
               placeholder="Rate of Vehicle rental"
               onChange={handleChange}
             />
             <input
+              className="col-span-1 divide-y divide-gray-200 rounded-sm bg-white shadow-md"
               type="text"
               id="Availability"
               placeholder="Availability of Vehicle, 0 = Unavailable, 1 = available"
               onChange={handleChange}
             />
-            <input className="bg-slate-400" type="submit" value="Add Vehicle" />
+            <input className="addButton" type="submit" value="Add Vehicle" />
           </form>
         </div>
       ) : (

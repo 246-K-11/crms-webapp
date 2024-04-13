@@ -37,3 +37,21 @@ body {
 .inputError {
   border: 5px solid red;
 }
+
+.addButton {
+  background-color: slategray;
+}
+
+.addButton:hover {
+  color: white;
+  background-color: darkblue;
+}
+
+.delButton {
+  background-color: slategray;
+}
+
+.delButton:hover {
+  color: white;
+  background-color: darkred;
+}
