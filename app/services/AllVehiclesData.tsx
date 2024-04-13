@@ -96,6 +96,8 @@ function GetAllVehicles() {
                     alt="avatar"
                   />
                   <button
+                    className="border-solid border-4
+                     border-slate-300 rounded"
                     id={
                       vehicleInfo.Make +
                       " (Model: " +

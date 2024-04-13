@@ -83,7 +83,7 @@ function GetAllCustomers() {
               key={customerInfo.CID}
               className="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow"
             >
-              <div className="flex w-full items-center justify-between space-x-6 p-6">
+              <div className="flex w-full items-center justify-between space-x-6 p-4">
                 <div className="flex-1 truncate">
                   <div className="flex items-center space-x-3">
                     <h3 className="truncate text-sm font-medium text-gray-900">
@@ -102,10 +102,16 @@ function GetAllCustomers() {
                   }
                   alt="avatar"
                 />
-                <a href={"/Rentals/Register?id=" + customerInfo.CID}>
+                <a
+                  className="border-solid border-2 border-slate-300 rounded "
+                  href={"/Rentals/Register?id=" + customerInfo.CID}
+                >
                   Make a rental
                 </a>
-                <a href={"/Customers/Update?id=" + customerInfo.CID}>
+                <a
+                  className="border-solid border-2 border-slate-300 rounded"
+                  href={"/Customers/Update?id=" + customerInfo.CID}
+                >
                   Update Customer
                 </a>
               </div>
