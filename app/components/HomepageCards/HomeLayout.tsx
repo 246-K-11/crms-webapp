@@ -1,15 +1,18 @@
 "use client";
-import { useState, useEffect } from "react";
-
-import { CardsUI } from "../HomepageCards/CardsUI";
-
-import { SearchInput } from "../searchbar/SearchUI";
-
-import { useSearchParams } from "next/navigation";
 import GetAllCustomers from "@/app/services/AllCustomersData";
+import GetAllVehicles from "@/app/services/AllVehiclesData";
 
 const HomeLayout = () => {
-  return <h1>HomePage</h1>;
+  return (
+    <>
+      <div>
+        <GetAllCustomers />
+      </div>
+      <div>
+        <GetAllVehicles />
+      </div>
+    </>
+  );
 };
 
 export default HomeLayout;

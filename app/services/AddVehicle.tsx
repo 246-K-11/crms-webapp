@@ -34,6 +34,7 @@ const AddVehicle = () => {
       .catch((err) => console.error(err));
 
     console.log(request);
+    e.target.reset();
   };
 
   const handleChange = (e: any) => {

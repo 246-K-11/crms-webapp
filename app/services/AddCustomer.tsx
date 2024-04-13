@@ -41,6 +41,7 @@ const AddCustomer = () => {
         setMsg(result);
       })
       .catch((err) => console.error(err));
+    e.target.reset();
   };
 
   const handleChange = (e: any) => {
