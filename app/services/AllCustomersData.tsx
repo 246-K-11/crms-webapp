@@ -105,6 +105,9 @@ function GetAllCustomers() {
                 <a href={"/Rentals/Register?id=" + customerInfo.CID}>
                   Make a rental
                 </a>
+                <a href={"/Customers/Update?id=" + customerInfo.CID}>
+                  Update Customer
+                </a>
               </div>
               <div>
                 <div className="-mt-px flex divide-x divide-gray-200">

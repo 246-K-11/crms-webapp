@@ -63,80 +63,86 @@ const AddCustomer = () => {
         <div>
           <form
             onSubmit={handleAddCustomer}
-            className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3"
+            className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 ml-2 mt-2  border-sold border-2 border-slate-500 rounded p-5"
           >
             <input
-              className="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow"
+              className="col-span-1 divide-y divide-gray-200 rounded-sm bg-white shadow-md"
               type="text"
               id="Firstname"
               placeholder="Enter Customer Firstname"
               onChange={handleChange}
             />
             <input
+              className="col-span-1 divide-y divide-gray-200 rounded-sm bg-white shadow-md"
               type="text"
               id="Lastname"
               placeholder="Enter Customer Lastname"
               onChange={handleChange}
             />
             <input
+              className="col-span-1 divide-y divide-gray-200 rounded-sm bg-white shadow-md"
               type="text"
               id="Address"
               placeholder="Customer Address"
               onChange={handleChange}
             />
             <input
+              className="col-span-1 divide-y divide-gray-200 rounded-sm bg-white shadow-md"
               type="text"
               id="Email_Address"
               placeholder="Customer Email"
               onChange={handleChange}
             />
             <input
+              className="col-span-1 divide-y divide-gray-200 rounded-sm bg-white shadow-md"
               type="text"
               id="Phone_Number"
               placeholder="Customer Phone #"
               onChange={handleChange}
             />
             <input
+              className="col-span-1 divide-y divide-gray-200 rounded-sm bg-white shadow-md"
               type="text"
               id="Driver_License_Number"
               placeholder="Customer's Drivers License #"
               onChange={handleChange}
             />
             <input
+              className="col-span-1 divide-y divide-gray-200 rounded-sm bg-white shadow-md"
               type="text"
               id="Province_Of_Issue"
               placeholder="Provinence of Customer's License"
               onChange={handleChange}
             />
             <input
+              className="col-span-1 divide-y divide-gray-200 rounded-sm bg-white shadow-md"
               type="text"
               id="License_Expiration_Date"
               placeholder="Customer's License Expiration Date: Formatted(y-m-d) "
               onChange={handleChange}
             />
             <input
+              className="col-span-1 divide-y divide-gray-200 rounded-sm bg-white shadow-md"
               type="text"
               id="Card_Number"
               placeholder="Customer Card #"
               onChange={handleChange}
             />
             <input
+              className="col-span-1 divide-y divide-gray-200 rounded-sm bg-white shadow-md"
               type="text"
               id="Billing_Address"
               placeholder="Customer's Billing Address"
               onChange={handleChange}
             />
             <input
+              className="col-span-1 divide-y divide-gray-200 rounded-sm bg-white shadow-md"
               type="text"
               id="Card_Expiration_Date"
               placeholder="Customer Card Expiration Date: Formatted(y-m-d) "
               onChange={handleChange}
             />
-            <input
-              className="bg-slate-400"
-              type="submit"
-              value="Add Customer"
-            />
+            <input className="addButton" type="submit" value="Add Customer" />
           </form>
         </div>
       ) : (

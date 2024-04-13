@@ -39,7 +39,7 @@ body {
 }
 
 .addButton {
-  background-color: slategray;
+  background-color: rgb(123, 141, 158);
 }
 
 .addButton:hover {
@@ -48,7 +48,7 @@ body {
 }
 
 .delButton {
-  background-color: slategray;
+  background-color: rgb(123, 141, 158);
 }
 
 .delButton:hover {

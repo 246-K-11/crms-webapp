@@ -56,7 +56,7 @@ const DeleteCustomer = () => {
               onChange={handleChange}
             />
             <input
-              className="bg-slate-400"
+              className="delButton"
               type="submit"
               value="Delete Customer"
             />
