@@ -22,12 +22,12 @@ const UpdateCustomer = () => {
       .then((response: any) => response.json())
       .then((theCustomer: any) => {
         setCustomer(theCustomer);
-        // setFilteredCustomer(theCustomer);
       })
       .catch((err) => console.error(err));
   }, []);
 
   const [formData, setFormData] = useState({
+    id: "",
     Firstname: "",
     Lastname: "",
     Address: "",
@@ -51,7 +51,7 @@ const UpdateCustomer = () => {
     e.preventDefault();
     console.log("submit " + JSON.stringify(formData));
 
-    const request = new Request("http://localhost/api/customers/addNew.php", {
+    const request = new Request("http://localhost/api/customers/update.php", {
       method: "POST",
       mode: "no-cors",
       headers: { "content-type": "application/json" },
@@ -65,6 +65,7 @@ const UpdateCustomer = () => {
         setMsg(result);
       })
       .catch((err) => console.error(err));
+    setFormData({ ...formData, id: customer.id });
   };
 
   const handleChange = (e: any) => {
@@ -86,7 +87,8 @@ const UpdateCustomer = () => {
       {!msg ? (
         <div>
           <h1 className="ml-6">
-            Updating Customer: {customer.Firstname} {customer.Lastname}{" "}
+            Updating Customer: {customer.Firstname} {customer.Lastname} ID:
+            {customer.id}
           </h1>
           <form
             onSubmit={handleAddCustomer}
@@ -169,7 +171,11 @@ const UpdateCustomer = () => {
               placeholder="Customer Card Expiration Date: Formatted(y-m-d) "
               onChange={handleChange}
             />
-            <input className="addButton" type="submit" value="Add Customer" />
+            <input
+              className="addButton"
+              type="submit"
+              value="Update Customer"
+            />
           </form>
         </div>
       ) : (

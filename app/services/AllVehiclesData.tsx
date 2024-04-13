@@ -109,6 +109,12 @@ function GetAllVehicles() {
                   >
                     Select
                   </button>
+                  <a
+                    className="border-solid border-2 border-slate-300 rounded ml-9 "
+                    href={"/Vehicles/Update?id=" + vehicleInfo.VID}
+                  >
+                    Update Vehicle
+                  </a>
                 </div>
               </div>
             </li>

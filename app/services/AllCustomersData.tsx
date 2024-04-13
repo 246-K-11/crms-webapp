@@ -87,7 +87,7 @@ function GetAllCustomers() {
                 <div className="flex-1 truncate">
                   <div className="flex items-center space-x-3">
                     <h3 className="truncate text-sm font-medium text-gray-900">
-                      {customerInfo.Lastname}, {customerInfo.Firstname}
+                      {customerInfo.Firstname}, {customerInfo.Lastname}
                     </h3>
                   </div>
                   <p className="mt-1 truncate text-sm text-gray-500">
