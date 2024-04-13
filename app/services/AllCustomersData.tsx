@@ -1,5 +1,15 @@
 "use client";
 import { useState, useEffect } from "react";
+export interface CustomerProfile {
+  CID: string;
+  Lastname: string;
+  Firstname: string;
+  Driver_License_Number: number;
+  Email_Address: string;
+  Phone_Number: string;
+}
+
+export const customerData: CustomerProfile[] = [];
 
 const formatPhone = (number: string) => {
   let finalPhone = `(${number.substring(0, 3)}) ${number.substring(
