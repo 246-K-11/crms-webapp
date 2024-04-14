@@ -41,7 +41,7 @@ const UpdateVehicle = () => {
     console.log("submit " + JSON.stringify(formData));
     const request = new Request("http://localhost/api/vehicles/update.php", {
       method: "POST",
-      mode: "no-cors",
+      mode: "cors",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(formData),
     });

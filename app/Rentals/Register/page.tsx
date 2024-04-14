@@ -1,12 +1,12 @@
 import React from "react";
-import RegisterARental from "../../services/RegisterRental";
+import RegisterRental from "../../services/RegisterRental";
 
-const RentalRegister = () => {
+const RentalRegister = (props: any) => {
  
   return (
     <main>
       <div>
-        <RegisterARental />
+        <RegisterRental props={props.searchParams}/>
       </div>
     </main>
   );
