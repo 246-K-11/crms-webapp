@@ -7,13 +7,13 @@ const AddRental = ({ props }: any) => {
   const [msg, setMsg] = useState<any | null>(null);
   const [vehicles, setVehicles] = useState<any | null>(null);
   const [formData, setFormData] = useState<any | {}>({
-    CID: parseInt(props.id)
+    CID: parseInt(props.id),
   });
 
   // for datepicker
   const [value, setValue] = useState({
     startDate: null,
-    endDate: null
+    endDate: null,
   });
   const reformatDate = (dt: any) => {
     const today = new Date(dt);
@@ -21,19 +21,19 @@ const AddRental = ({ props }: any) => {
     let mm = today.getMonth() + 1; // Months start at 0!
     let dd = today.getDate() + 1; // offset value due a weird bug
 
-    if (dd < 10) dd = '0' + dd;
-    if (mm < 10) mm = '0' + mm;
+    if (dd < 10) dd = "0" + dd;
+    if (mm < 10) mm = "0" + mm;
 
-    return (yyyy + '-' + mm + '-' + dd);
-  }
+    return yyyy + "-" + mm + "-" + dd;
+  };
   const handleValueChange = (newValue: any) => {
     setValue(newValue);
     setFormData({
       ...formData,
       Rental_Period_Start: reformatDate(newValue.startDate),
-      Rental_Period_End: reformatDate(newValue.endDate)
+      Rental_Period_End: reformatDate(newValue.endDate),
     });
-  }
+  };
 
   const handleAddCustomer = (e: any) => {
     e.preventDefault();
@@ -43,14 +43,14 @@ const AddRental = ({ props }: any) => {
       method: "POST",
       mode: "cors",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(formData),
     });
 
     fetch(request)
       .then((response) => {
-        return response.json()
+        return response.json();
       })
       .then((result) => {
         setMsg(result);
@@ -142,7 +142,12 @@ const AddRental = ({ props }: any) => {
               placeholder="Additional Fees"
               onChange={handleChange}
             />
-            <input className="addButton col-span-2" type="submit" value="Add Rental" />
+          
+            <input
+              className="addButton col-span-2"
+              type="submit"
+              value="Add Rental"
+            />
           </form>
         </div>
       ) : (

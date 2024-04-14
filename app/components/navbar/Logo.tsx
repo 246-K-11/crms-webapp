@@ -9,6 +9,7 @@ const Logo = () => {
       width={60}
       height={60}
       alt="Logo of [Clientname]"
+      priority={true}
     />
   );
 };

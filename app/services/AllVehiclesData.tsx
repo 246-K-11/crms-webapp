@@ -84,6 +84,7 @@ function GetAllVehicles() {
                   <p>Model: {vehicleInfo.Model}</p>
                   <p>Color: {vehicleInfo.Color}</p>
                   <p>Rate: ${vehicleInfo.Rate}</p>
+                  <p>Odometer: {vehicleInfo.Odometer_Reading} km</p>
                 </div>
                 <div className="p-4  w-0 flex-1">
                   <img
