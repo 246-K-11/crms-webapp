@@ -97,24 +97,53 @@ function GetAllCustomers() {
                 </div>
                 <img
                   className="h-10 w-10 flex-shrink-0 rounded-full bg-gray-300"
-                  src={"https://api.dicebear.com/8.x/micah/svg?seed=" + customerInfo.Firstname}
+                  src={
+                    "https://api.dicebear.com/8.x/micah/svg?seed=" +
+                    customerInfo.Firstname
+                  }
                   alt="avatar"
                 />
-                 <Link 
-                   className="border-solid border-2 border-slate-300 rounded "
-                 href={{
-                  pathname: '/Rentals/Register',
-                  query: {
-                    id: customerInfo.CID,
-                    name: customerInfo.Firstname + " " + customerInfo.Lastname
-                  }
-                }} >Make a rental</Link>
-                 <Link 
-                   className="border-solid border-2 border-slate-300 rounded "
-                 href={{
-                  pathname: '/Customers/Update',
-                  query: { id: customerInfo.CID }
-                }} >Update Customer</Link>
+                <Link
+                  className="border-solid border-2 border-slate-300 rounded "
+                  href={{
+                    pathname: "/Rentals/Register",
+                    query: {
+                      id: customerInfo.CID,
+                      name:
+                        customerInfo.Firstname + " " + customerInfo.Lastname,
+                    },
+                  }}
+                >
+                  Make a rental
+                </Link>
+                <Link
+                  className="border-solid border-2 border-slate-300 rounded "
+                  href={{
+                    pathname: "/Customers/Update",
+                    query: { id: customerInfo.CID },
+                  }}
+                >
+                  Update Customer
+                </Link>
+                <Link
+                  className="border-solid border-2 border-slate-300 rounded"
+                  href={{ pathname: "/Customers/Add" }}
+                >
+                  Add Customer
+                </Link>
+                <Link
+                  className="border-solid border-2 border-slate-300 rounded "
+                  href={{
+                    pathname: "/Customers/Delete",
+                    query: {
+                      id: customerInfo.CID,
+                      name:
+                        customerInfo.Firstname + " " + customerInfo.Lastname,
+                    },
+                  }}
+                >
+                  Delete Customer
+                </Link>
               </div>
               <div>
                 <div className="-mt-px flex divide-x divide-gray-200">
