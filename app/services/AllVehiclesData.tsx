@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 function GetAllVehicles() {
   const [allVehicles, setAllVehicles] = useState([]);
@@ -110,12 +111,30 @@ function GetAllVehicles() {
                   >
                     Select
                   </button>
-                  <a
+                  <Link
                     className="border-solid border-2 border-slate-300 rounded ml-9 "
                     href={"/Vehicles/Update?id=" + vehicleInfo.VID}
                   >
                     Update Vehicle
-                  </a>
+                  </Link>
+                  <Link
+                    className="border-solid border-2 border-slate-300 rounded ml-9 "
+                    href={"/Vehicles/Add"}
+                  >
+                    Add Vehicle
+                  </Link>
+                  <Link
+                    className="border-solid border-2 border-slate-300 rounded ml-9  "
+                    href={{
+                      pathname: "/Vehicles/Delete",
+                      query: {
+                        id: vehicleInfo.VID,
+                        name: vehicleInfo.Make + " " + vehicleInfo.Model,
+                      },
+                    }}
+                  >
+                    Delete Vehicle
+                  </Link>
                 </div>
               </div>
             </li>

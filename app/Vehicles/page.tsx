@@ -6,10 +6,6 @@ const Vehicles = () => {
   return (
     <main>
       <div>
-        <AddVehicle />
-        <DeleteVehicle />
-      </div>
-      <div>
         <GetAllVehicles />
       </div>
     </main>

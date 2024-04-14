@@ -35,7 +35,7 @@ const AddRental = ({ props }: any) => {
     });
   };
 
-  const handleAddCustomer = (e: any) => {
+  const handleAddRental = (e: any) => {
     e.preventDefault();
     // console.info("submit " + JSON.stringify(formData));
 
@@ -82,7 +82,7 @@ const AddRental = ({ props }: any) => {
       {!msg ? (
         <div className="flex justify-center px-3">
           <form
-            onSubmit={handleAddCustomer}
+            onSubmit={handleAddRental}
             className="grid grid-cols-1 gap-10 sm:grid-cols-1 lg:grid-cols-1 ml-2 mt-2 w-2/3 border-sold border-2 border-slate-500 rounded p-5 bg-black bg-opacity-5"
           >
             {/* <input
@@ -101,39 +101,41 @@ const AddRental = ({ props }: any) => {
             />
             <div className="max-w-sm mx-0">
               {/* <label for="countries" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label> */}
-              <select id="VID"
+              <select
+                id="VID"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 onChange={handleChange}
               >
                 <option value="DEFAULT">Choose a vehicle</option>
-                {!!vehicles ?
-                  vehicles.map((vehicle: any) => (
-                    <option key={vehicle.VID} value={vehicle.VID}>
-                      {vehicle.Make + " " + vehicle.Model + ", " + vehicle.Color}
-                    </option>
-                  )
-                  )
-                  :
-                  ""}
+                {!!vehicles
+                  ? vehicles.map((vehicle: any) => (
+                      <option key={vehicle.VID} value={vehicle.VID}>
+                        {vehicle.Make +
+                          " " +
+                          vehicle.Model +
+                          ", " +
+                          vehicle.Color}
+                      </option>
+                    ))
+                  : ""}
               </select>
             </div>
-              <textarea
-                // className="col-span-2 divide-y divide-gray-200 rounded-sm bg-white shadow-md"
-                className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                id="Status"
-                rows={4}
-                placeholder="Status"
-                onChange={handleChange}
-              />
-              <textarea
-                // className="col-span-2 divide-y divide-gray-200 rounded-sm bg-white shadow-md"
-                className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                id="Status"
-                rows={4}
-                id="Vehicle_Condition"
-                placeholder="Vehicle Condition"
-                onChange={handleChange}
-              />
+            <textarea
+              // className="col-span-2 divide-y divide-gray-200 rounded-sm bg-white shadow-md"
+              className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              id="Status"
+              rows={4}
+              placeholder="Status"
+              onChange={handleChange}
+            />
+            <textarea
+              // className="col-span-2 divide-y divide-gray-200 rounded-sm bg-white shadow-md"
+              className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              rows={4}
+              id="Vehicle_Condition"
+              placeholder="Vehicle Condition"
+              onChange={handleChange}
+            />
             <input
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               // className="col-span-1 divide-y divide-gray-200 rounded-sm bg-white shadow-md"
@@ -142,7 +144,7 @@ const AddRental = ({ props }: any) => {
               placeholder="Additional Fees"
               onChange={handleChange}
             />
-          
+
             <input
               className="addButton col-span-2"
               type="submit"
@@ -153,13 +155,8 @@ const AddRental = ({ props }: any) => {
       ) : (
         <div className="m-4">
           <p className="px-3">{msg.message}</p>
-          <Link
-            href="/Rentals"
-            className="m-4 text-sky-600"
-          >
-            <button>
-              Go to Rentals
-            </button>
+          <Link href="/Rentals" className="m-4 text-sky-600">
+            <button>Go to Rentals</button>
           </Link>
         </div>
       )}
