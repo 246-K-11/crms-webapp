@@ -41,37 +41,51 @@ function GetAllCustomers() {
       <h1 className="mt-10 ml-4 pl-4 bg-slate-300 rounded-lg w-80">
         Total Customers: {allCustomers.length}
       </h1>
-      <div className="m-3 md:w-96">
-        <div className="relative mb-4 flex w-full flex-wrap items-stretch">
-          <input
-            type="search"
-            className="relative m-0 -mr-0.5 block w-[1px] min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
-            placeholder="Search Customers"
-            aria-label="Search"
-            aria-describedby="button-addon1"
-            onChange={searchCustomer}
-          />
-
-          {/* <!--Search button--> */}
-          <button
-            className="relative z-[2] flex items-center rounded-r bg-blue-600 px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg"
-            type="button"
-            id="button-addon1"
-            onClick={searchCustomer}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="#ffffff"
-              className="h-5 w-5"
-            >
-              <path
-                fillRule="evenodd"
-                d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
-                clipRule="evenodd"
+      <div
+        className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+      >
+        <div className="col-span-1  rounded-lg">
+          <div className="m-3 md:w-96">
+            <div className="relative mb-4 flex w-full flex-wrap items-stretch">
+              <input
+                type="search"
+                className="relative m-0 -mr-0.5 block w-[1px] min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
+                placeholder="Search Customers"
+                aria-label="Search"
+                aria-describedby="button-addon1"
+                onChange={searchCustomer}
               />
-            </svg>
-          </button>
+
+              {/* <!--Search button--> */}
+              <button
+                className="relative z-[2] flex items-center rounded-r bg-blue-600 px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg"
+                type="button"
+                id="button-addon1"
+                onClick={searchCustomer}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="#ffffff"
+                  className="h-5 w-5"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="col-span-1  rounded-lg">
+          <Link
+            className="border-solid border-2 border-slate-300 rounded p-3"
+            href={{ pathname: "/Customers/Add" }}
+          >
+            Create a new customer account
+          </Link>
         </div>
       </div>
       <div className="bg-white px-4 py-12 sm:px-6 lg:px-8">
@@ -82,11 +96,11 @@ function GetAllCustomers() {
           {filteredCustomers.map((customerInfo: any) => (
             <li
               key={customerInfo.CID}
-              className="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow"
+              className="col-span-1 divide-y divide-gray-200 rounded-lg bg-slate-100 shadow"
             >
               <div className="flex w-full items-center justify-between space-x-6 p-4">
                 <div className="flex-1 truncate">
-                  <div className="flex items-center space-x-3">
+                  <div className="flex items-center space-x-2">
                     <h3 className="truncate text-sm font-medium text-gray-900">
                       {customerInfo.Firstname}, {customerInfo.Lastname}
                     </h3>
@@ -103,54 +117,59 @@ function GetAllCustomers() {
                   }
                   alt="avatar"
                 />
-                <Link
-                  className="border-solid border-2 border-slate-300 rounded "
-                  href={{
-                    pathname: "/Rentals/Register",
-                    query: {
-                      id: customerInfo.CID,
-                      name:
-                        customerInfo.Firstname + " " + customerInfo.Lastname,
-                    },
-                  }}
-                >
-                  Make a rental
-                </Link>
-                <Link
-                  className="border-solid border-2 border-slate-300 rounded "
-                  href={{
-                    pathname: "/Customers/Update",
-                    query: { id: customerInfo.CID },
-                  }}
-                >
-                  Update Customer
-                </Link>
-                <Link
-                  className="border-solid border-2 border-slate-300 rounded"
-                  href={{ pathname: "/Customers/Add" }}
-                >
-                  Add Customer
-                </Link>
-                <Link
-                  className="border-solid border-2 border-slate-300 rounded "
-                  href={{
-                    pathname: "/Customers/Delete",
-                    query: {
-                      id: customerInfo.CID,
-                      name:
-                        customerInfo.Firstname + " " + customerInfo.Lastname,
-                    },
-                  }}
-                >
-                  Delete Customer
-                </Link>
               </div>
               <div>
-                <div className="-mt-px flex divide-x divide-gray-200">
-                  <div className="flex w-0 flex-1">
+                <div className=" flex justify-evenly">
+                  <div className="flex text-sm ">
+                    <Link
+                      className="p-2 my-2 border-solid border-2 border-slate-300 rounded "
+                      href={{
+                        pathname: "/Rentals/Register",
+                        query: {
+                          id: customerInfo.CID,
+                          name:
+                            customerInfo.Firstname + " " + customerInfo.Lastname,
+                        },
+                      }}
+                    >
+                      Make a rental
+                    </Link>
+                  </div>
+                  <div className="flex text-sm ">
+                    {/* <div className="col-span-1  rounded-lg">  */}
+                    <Link
+                      className="p-2 my-2 border-solid border-2 border-slate-300 rounded "
+                      href={{
+                        pathname: "/Customers/Update",
+                        query: { id: customerInfo.CID },
+                      }}
+                    >
+                      Update Customer
+                    </Link>
+                  </div>
+                  <div className="flex text-sm ">
+                    <Link
+                      className="p-2 my-2 border-solid border-2 border-slate-300 rounded "
+                      href={{
+                        pathname: "/Customers/Delete",
+                        query: {
+                          id: customerInfo.CID,
+                          name:
+                            customerInfo.Firstname + " " + customerInfo.Lastname,
+                        },
+                      }}
+                    >
+                      Delete Customer
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div className="relative-mt-px flex divide-x divide-gray-200">
+                  <div className="flex w-0 flex-1 text-sm ">
                     <a
                       href={"mailto:" + customerInfo.Email_Address}
-                      className="relative -mr-px inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-bl-lg border border-transparent py-4 text-sm font-semibold text-gray-900"
+                      className="relative-mr-px inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-bl-lg border border-transparent py-4 text-xs font-semibold text-gray-900"
                     >
                       <svg
                         className="h-5 w-5 text-gray-400"
@@ -161,7 +180,7 @@ function GetAllCustomers() {
                         <path d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z" />
                         <path d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z" />
                       </svg>
-                      Email: {customerInfo.Email_Address}
+                      {customerInfo.Email_Address}
                     </a>
                   </div>
                   <div className="-ml-px flex w-0 flex-1">
@@ -170,7 +189,7 @@ function GetAllCustomers() {
                         "tel:" +
                         formatPhone(customerInfo.Phone_Number.toString())
                       }
-                      className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-4 text-sm font-semibold text-gray-900"
+                      className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-4 text-xs font-semibold text-gray-900"
                     >
                       <svg
                         className="h-5 w-5 text-gray-400"
@@ -184,7 +203,7 @@ function GetAllCustomers() {
                           clipRule="evenodd"
                         />
                       </svg>
-                      Call: {formatPhone(customerInfo.Phone_Number.toString())}
+                      {formatPhone(customerInfo.Phone_Number.toString())}
                     </a>
                   </div>
                 </div>
