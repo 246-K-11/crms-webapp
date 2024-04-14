@@ -35,7 +35,9 @@ function GetAllVehicles() {
 
   return (
     <main>
-      <h1>All Vehicles: {allVehicles.length}</h1>
+      <h1 className="mt-10 ml-4 pl-4 bg-slate-300 rounded-lg w-80">
+        All Vehicles: {allVehicles.length}
+      </h1>
       <div>
         <div className="m-3 md:w-96">
           <div className=" mb-4 flex w-full flex-wrap items-stretch">
