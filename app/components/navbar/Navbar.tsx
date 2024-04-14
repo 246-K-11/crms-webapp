@@ -6,13 +6,13 @@ import SignInButton from "./SignIn";
 const Navbar = () => {
   return (
     <>
-      <div className="w-full h-24 bg-gray-300 bg-opacity-100 sticky top-0">
-        <div className="container mx-auto px-4 h-full">
-          <div className="md:flex justify-start items-center h-full">
+      <div className="w-full h-24 bg-gray-300 bg-opacity-100 sticky top-0 opacity-100">
+        <div className="container mx-auto px-4 h-full bg-opacity-100">
+          <div className="md:flex justify-start items-center h-full bg-opacity-100">
             <Link href="/">
               <Logo />
             </Link>
-            <ul className=" md:flex justify-end gap-x-7 pl-64 ml-96 text-black">
+            <ul className=" md:flex justify-end gap-x-7 pl-64 ml-96 text-black bg-opacity-100">
               <li>
                 <Link href="/Customers">
                   <p>Customers</p>
