@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 const DeleteVehicle = () => {
   const [msg, setMsg] = useState<any | null>(null);
   const [myParams, setMyParams] = useState<any | {}>({});
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<any | {}>({
     id: "",
   });
   useEffect(() => {

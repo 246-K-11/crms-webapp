@@ -119,6 +119,7 @@ function GetAllCustomers() {
                 />
               </div>
               <div>
+
                 <div className=" flex justify-evenly">
                   <div className="flex text-sm ">
                     <Link
@@ -184,12 +185,14 @@ function GetAllCustomers() {
                     </a>
                   </div>
                   <div className="-ml-px flex w-0 flex-1">
-                    <a
+                    <Link
                       href={
                         "tel:" +
                         formatPhone(customerInfo.Phone_Number.toString())
                       }
+
                       className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-4 text-xs font-semibold text-gray-900"
+
                     >
                       <svg
                         className="h-5 w-5 text-gray-400"
@@ -203,8 +206,10 @@ function GetAllCustomers() {
                           clipRule="evenodd"
                         />
                       </svg>
+
                       {formatPhone(customerInfo.Phone_Number.toString())}
                     </a>
+
                   </div>
                 </div>
               </div>
