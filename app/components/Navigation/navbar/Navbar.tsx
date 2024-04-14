@@ -48,6 +48,11 @@ const Navbar = ({ toggle }: { toggle: () => void }) => {
                   <p>Reports</p>
                 </Link>
               </li>
+              <li>
+                <Link href="/Payments">
+                  <p>Payments</p>
+                </Link>
+              </li>
             </ul>
             <div className="hidden md:block">
               <SignInButton />

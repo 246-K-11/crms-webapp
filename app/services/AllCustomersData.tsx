@@ -41,9 +41,7 @@ function GetAllCustomers() {
       <h1 className="mt-10 ml-4 pl-4 bg-slate-300 rounded-lg w-80">
         Total Customers: {allCustomers.length}
       </h1>
-      <div
-        className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
-      >
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <div className="col-span-1  rounded-lg">
           <div className="m-3 md:w-96">
             <div className="relative mb-4 flex w-full flex-wrap items-stretch">
@@ -119,7 +117,6 @@ function GetAllCustomers() {
                 />
               </div>
               <div>
-
                 <div className=" flex justify-evenly">
                   <div className="flex text-sm ">
                     <Link
@@ -129,7 +126,9 @@ function GetAllCustomers() {
                         query: {
                           id: customerInfo.CID,
                           name:
-                            customerInfo.Firstname + " " + customerInfo.Lastname,
+                            customerInfo.Firstname +
+                            " " +
+                            customerInfo.Lastname,
                         },
                       }}
                     >
@@ -156,7 +155,9 @@ function GetAllCustomers() {
                         query: {
                           id: customerInfo.CID,
                           name:
-                            customerInfo.Firstname + " " + customerInfo.Lastname,
+                            customerInfo.Firstname +
+                            " " +
+                            customerInfo.Lastname,
                         },
                       }}
                     >
@@ -190,9 +191,7 @@ function GetAllCustomers() {
                         "tel:" +
                         formatPhone(customerInfo.Phone_Number.toString())
                       }
-
                       className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-4 text-xs font-semibold text-gray-900"
-
                     >
                       <svg
                         className="h-5 w-5 text-gray-400"
@@ -208,8 +207,7 @@ function GetAllCustomers() {
                       </svg>
 
                       {formatPhone(customerInfo.Phone_Number.toString())}
-                    </a>
-
+                    </Link>
                   </div>
                 </div>
               </div>
