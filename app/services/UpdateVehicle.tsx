@@ -53,7 +53,6 @@ const UpdateVehicle = () => {
         setMsg(result);
       })
       .catch((err) => console.error(err));
-    setFormData({ ...formData, id: vehicle.id });
   };
 
   const handleChange = (e: any) => {
@@ -71,6 +70,7 @@ const UpdateVehicle = () => {
     setFormData({
       ...formData,
       [e.target.id]: e.target.value,
+      id: vehicle.id,
     });
   };
 
@@ -131,7 +131,7 @@ const UpdateVehicle = () => {
               className="col-span-1 divide-y divide-gray-200 rounded-sm bg-white shadow-md"
               type="text"
               id="Availability"
-              placeholder="Availability of Vehicle, 0 = Unavailable, 1 = available"
+              placeholder="Availability of Vehicle: 0 = Unavailable, 1 = available"
               onChange={handleChange}
             />
             <input className="addButton" type="submit" value="Update Vehicle" />

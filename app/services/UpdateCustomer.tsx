@@ -65,7 +65,6 @@ const UpdateCustomer = () => {
         setMsg(result);
       })
       .catch((err) => console.error(err));
-    setFormData({ ...formData, id: customer.id });
   };
 
   const handleChange = (e: any) => {
@@ -79,6 +78,7 @@ const UpdateCustomer = () => {
     setFormData({
       ...formData,
       [e.target.id]: e.target.value,
+      id: customer.id,
     });
   };
 

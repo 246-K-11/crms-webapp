@@ -112,7 +112,7 @@ const AddVehicle = () => {
               className="col-span-1 divide-y divide-gray-200 rounded-sm bg-white shadow-md"
               type="text"
               id="Availability"
-              placeholder="Availability of Vehicle, 0 = Unavailable, 1 = available"
+              placeholder="Availability of Vehicle: 0 = Unavailable, 1 = available"
               onChange={handleChange}
             />
             <input className="addButton" type="submit" value="Add Vehicle" />
