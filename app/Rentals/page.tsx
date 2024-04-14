@@ -1,11 +1,11 @@
 import React from "react";
-import GetAllCustomers from "../services/AllCustomersData";
+import GetAllRentals from "../services/AllRentalsData";
 
 const Rentals = () => {
   return (
     <main>
       <div>
-        <GetAllCustomers />
+        <GetAllRentals />
       </div>
     </main>
   );
