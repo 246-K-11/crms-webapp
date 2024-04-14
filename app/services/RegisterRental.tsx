@@ -1,37 +1,18 @@
 "use client";
+import { URLPattern } from "next/server";
 import { useState, useEffect } from "react";
-// import
+import AddRental from "./AddRental";
 
-function RegisterARental() {
-  const [myParams, setMyParams] = useState<any | {}>({});
-  const [customer, setCustomer] = useState<any | {}>({});
-
-  useEffect(() => {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    setMyParams({
-      id: urlParams.get("id"),
-    });
-    console.log(myParams, { id: urlParams.get("id") });
-    const URL =
-      "http://localhost/api/customers/getCustomer.php?id=" +
-      urlParams.get("id");
-    fetch(URL, { method: "GET" })
-      .then((response: any) => response.json())
-      .then((theCustomer: any) => {
-        setCustomer(theCustomer);
-        // setFilteredCustomer(theCustomer);
-      })
-      .catch((err) => console.error(err));
-  }, []);
+function RegisterRental({props}: any) {
 
   return (
-    <div className="m-4">
-      <h1 className="px-3">
-        Registering a rental for {customer.Firstname + " " + customer.Lastname}
-      </h1>
-    </div>
+    <>
+      <div className="m-4">
+        <h1 className="px-3">Registering a rental for {props.name}</h1>
+      </div>
+      <AddRental props={props}/>
+    </>
   );
 }
 
-export default RegisterARental;
+export default RegisterRental;

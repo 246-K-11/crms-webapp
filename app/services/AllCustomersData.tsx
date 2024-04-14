@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 const formatPhone = (number: string) => {
   let finalPhone = `(${number.substring(0, 3)}) ${number.substring(
@@ -96,24 +97,24 @@ function GetAllCustomers() {
                 </div>
                 <img
                   className="h-10 w-10 flex-shrink-0 rounded-full bg-gray-300"
-                  src={
-                    "https://api.dicebear.com/8.x/micah/svg?seed=" +
-                    customerInfo.Firstname
-                  }
+                  src={"https://api.dicebear.com/8.x/micah/svg?seed=" + customerInfo.Firstname}
                   alt="avatar"
                 />
-                <a
-                  className="border-solid border-2 border-slate-300 rounded "
-                  href={"/Rentals/Register?id=" + customerInfo.CID}
-                >
-                  Make a rental
-                </a>
-                <a
-                  className="border-solid border-2 border-slate-300 rounded"
-                  href={"/Customers/Update?id=" + customerInfo.CID}
-                >
-                  Update Customer
-                </a>
+                 <Link 
+                   className="border-solid border-2 border-slate-300 rounded "
+                 href={{
+                  pathname: '/Rentals/Register',
+                  query: {
+                    id: customerInfo.CID,
+                    name: customerInfo.Firstname + " " + customerInfo.Lastname
+                  }
+                }} >Make a rental</Link>
+                 <Link 
+                   className="border-solid border-2 border-slate-300 rounded "
+                 href={{
+                  pathname: '/Customers/Update',
+                  query: { id: customerInfo.CID }
+                }} >Update Customer</Link>
               </div>
               <div>
                 <div className="-mt-px flex divide-x divide-gray-200">

@@ -20,7 +20,7 @@ const AddVehicle = () => {
 
     const request = new Request("http://localhost/api/vehicles/addNew.php", {
       method: "POST",
-      mode: "no-cors",
+      mode: "cors",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(formData),
     });
