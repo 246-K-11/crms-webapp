@@ -10,7 +10,7 @@ const Vehicles = () => {
         <DeleteVehicle />
       </div>
       <div>
-        <GetAllVehicles />;
+        <GetAllVehicles />
       </div>
     </main>
   );

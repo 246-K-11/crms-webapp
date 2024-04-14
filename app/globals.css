@@ -37,3 +37,21 @@ body {
 .inputError {
   border: 5px solid red;
 }
+
+.addButton {
+  background-color: rgb(123, 141, 158);
+}
+
+.addButton:hover {
+  color: white;
+  background-color: darkblue;
+}
+
+.delButton {
+  background-color: rgb(123, 141, 158);
+}
+
+.delButton:hover {
+  color: white;
+  background-color: darkred;
+}

@@ -3,8 +3,7 @@ import { URLPattern } from "next/server";
 import { useState, useEffect } from "react";
 
 function RegisterARental() {
-
-    const [customer, setCustomer] = useState({});
+  const [customer, setCustomer] = useState<any | {}>({});
 
     useEffect(() => {
         const queryString = window.location.search;
@@ -26,6 +25,13 @@ function RegisterARental() {
         </div>
     );
 
+  return (
+    <div className="m-4">
+      <h1 className="px-3">
+        Registering a rental for {customer.Firstname + " " + customer.Lastname}
+      </h1>
+    </div>
+  );
 }
 
 export default RegisterARental;
