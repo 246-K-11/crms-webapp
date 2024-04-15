@@ -5,8 +5,6 @@ import { useState, useEffect } from "react";
 // import
 
 const ViewRental = () => {
-  // const [msg, setMsg] = useState<any | null>(null);
-  // const [myParams, setMyParams] = useState<any | {}>({});
   const [rental, setRental] = useState<any | {}>({});
 
   useEffect(() => {
@@ -20,44 +18,6 @@ const ViewRental = () => {
       })
       .catch((err) => console.error(err));
   }, []);
-
-  // const handleAddrental = (e: any) => {
-  //   e.preventDefault();
-  //   console.log("submit " + JSON.stringify(formData));
-  //   const request = new Request("http://localhost/api/rentals/update.php", {
-  //     method: "POST",
-  //     mode: "cors",
-  //     headers: { "content-type": "application/json" },
-  //     body: JSON.stringify(formData),
-  //   });
-
-  //   fetch(request)
-  //     .then((response) => response.json())
-  //     .then((result) => {
-  //       console.warn(result);
-  //       setMsg(result);
-  //     })
-  //     .catch((err) => console.error(err));
-  // };
-
-  // const handleChange = (e: any) => {
-  //   if (e.target.id == "Rate") {
-  //     if (isNaN(e.target.value)) {
-  //       console.warn("Rate field is not a valid number");
-  //       e.target.className = "inputError";
-  //       return;
-  //     } else e.target.className = " ";
-  //   }
-  //   if (e.target.id == "Availability" && e.target.value == 0) {
-  //     setFormData({ ...formData, [e.target.id]: "Null" });
-  //     return;
-  //   }
-  //   setFormData({
-  //     ...formData,
-  //     [e.target.id]: e.target.value,
-  //     id: rental.id,
-  //   });
-  // };
 
   return (
     <>
@@ -81,7 +41,7 @@ const ViewRental = () => {
             <div className=" w-fit p-6 ">
               <Link
                 href={{
-                  pathname: "/Payments/Pay",
+                  pathname: "/Payments",
                   query: {
                     rid: rental.RID,
                     cid: rental.CID
@@ -89,7 +49,7 @@ const ViewRental = () => {
                 }}
               >
                 <button className="p-2 my-2 border-solid border-2 border-slate-300 rounded">
-                  Make A Payment
+                  Make a Payment
                 </button>
               </Link>
             </div>
