@@ -72,6 +72,9 @@ function GetAllVehicles() {
           </div>
         </div>
         <p>Your choice: {carSelected}</p>
+        <div className=" border-solid border-2 border-slate-300 rounded p-4 w-52 ml-auto mr-auto mb-10  ">
+          <Link href={"/Vehicles/Add"}>Add a new Vehicle</Link>
+        </div>
         <ul
           role="list"
           className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
@@ -91,7 +94,7 @@ function GetAllVehicles() {
                 </div>
                 <div className="p-4  w-0 flex-1">
                   <img
-                    className="h-14 w-16 flex-wrap rounded-full bg-gray-300"
+                    className="h-14 w-16 flex-wrap rounded-full bg-gray-300 mb-4"
                     src={
                       "https://www.auto-data.net/img/logos/" +
                       vehicleInfo.Make +
@@ -100,7 +103,7 @@ function GetAllVehicles() {
                     alt="avatar"
                   />
                   <button
-                    className="border-solid border-4
+                    className="border-solid border-2
                      border-slate-300 rounded"
                     id={
                       vehicleInfo.Make +
@@ -118,12 +121,6 @@ function GetAllVehicles() {
                     href={"/Vehicles/Update?id=" + vehicleInfo.VID}
                   >
                     Update Vehicle
-                  </Link>
-                  <Link
-                    className="border-solid border-2 border-slate-300 rounded ml-9 "
-                    href={"/Vehicles/Add"}
-                  >
-                    Add Vehicle
                   </Link>
                   <Link
                     className="border-solid border-2 border-slate-300 rounded ml-9  "
