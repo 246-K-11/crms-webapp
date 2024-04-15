@@ -55,7 +55,9 @@ const Navbar = ({ toggle }: { toggle: () => void }) => {
               </li>
             </ul>
             <div className="hidden md:block">
-              <SignInButton />
+              <Link href={"/components/Login"}>
+                <SignInButton />
+              </Link>
             </div>
           </div>
         </div>
