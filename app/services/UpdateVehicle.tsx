@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 const UpdateVehicle = () => {
   const [msg, setMsg] = useState<any | null>(null);
   const [myParams, setMyParams] = useState<any | {}>({});
-  const [vehicle, setVechile] = useState<any | {}>({});
+  const [vehicle, setVehicle] = useState<any | {}>({});
 
   useEffect(() => {
     const queryString = window.location.search;
@@ -20,7 +20,7 @@ const UpdateVehicle = () => {
     fetch(URL, { method: "GET" })
       .then((response: any) => response.json())
       .then((theVehicle: any) => {
-        setVechile(theVehicle);
+        setVehicle(theVehicle);
       })
       .catch((err) => console.error(err));
   }, []);
