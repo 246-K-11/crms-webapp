@@ -8,9 +8,6 @@ const HomeLayout = () => {
       <div>
         <GetAllCustomers />
       </div>
-      <div>
-        <GetAllVehicles />
-      </div>
     </>
   );
 };

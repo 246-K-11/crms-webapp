@@ -44,10 +44,10 @@ function GetAllCustomers() {
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <div className="col-span-1  rounded-lg">
           <div className="m-3 md:w-96">
-            <div className="relative mb-4 flex w-full flex-wrap items-stretch">
+            <div className=" mb-4 flex w-full flex-wrap items-stretch">
               <input
                 type="search"
-                className="relative m-0 -mr-0.5 block w-[1px] min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
+                className=" m-0 -mr-0.5 block w-[1px] min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
                 placeholder="Search Customers"
                 aria-label="Search"
                 aria-describedby="button-addon1"
@@ -56,10 +56,9 @@ function GetAllCustomers() {
 
               {/* <!--Search button--> */}
               <button
-                className="relative z-[2] flex items-center rounded-r bg-blue-600 px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg"
+                className="flex items-center rounded-r bg-blue-600 px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg"
                 type="button"
                 id="button-addon1"
-                onClick={searchCustomer}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -167,11 +166,11 @@ function GetAllCustomers() {
                 </div>
               </div>
               <div>
-                <div className="relative-mt-px flex divide-x divide-gray-200">
+                <div className=" -mt-px flex divide-x divide-gray-200">
                   <div className="flex w-0 flex-1 text-sm ">
                     <a
                       href={"mailto:" + customerInfo.Email_Address}
-                      className="relative-mr-px inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-bl-lg border border-transparent py-4 text-xs font-semibold text-gray-900"
+                      className=" -mr-px inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-bl-lg border border-transparent py-4 text-xs font-semibold text-gray-900"
                     >
                       <svg
                         className="h-5 w-5 text-gray-400"
@@ -191,7 +190,7 @@ function GetAllCustomers() {
                         "tel:" +
                         formatPhone(customerInfo.Phone_Number.toString())
                       }
-                      className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-4 text-xs font-semibold text-gray-900"
+                      className=" inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-4 text-xs font-semibold text-gray-900"
                     >
                       <svg
                         className="h-5 w-5 text-gray-400"
