@@ -18,8 +18,8 @@ const AddRental = ({ props }: any) => {
   const reformatDate = (dt: any) => {
     const today = new Date(dt);
     const yyyy = today.getFullYear();
-    let mm = today.getMonth() + 1; // Months start at 0!
-    let dd = today.getDate() + 1; // offset value due a weird bug
+    let mm: any = today.getMonth() + 1; // Months start at 0!
+    let dd: any = today.getDate() + 1; // offset value due a weird bug
 
     if (dd < 10) dd = "0" + dd;
     if (mm < 10) mm = "0" + mm;
@@ -97,7 +97,7 @@ const AddRental = ({ props }: any) => {
               value={value}
               onChange={handleValueChange}
               readOnly={true}
-              minDate={Date.now()}
+              //minDate={Date.now()}
             />
             <div className="max-w-sm mx-0">
               {/* <label for="countries" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label> */}

@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
-const DeleteRental = ({props}): any => {
+const DeleteRental = ({props}: any): any => {
   const [msg, setMsg] = useState<any | null>(null);
 
   const handleDeleteRental = (e: any) => {

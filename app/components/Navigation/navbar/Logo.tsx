@@ -42,6 +42,7 @@ const Logo = () => {
           width={width < 1024 ? "70" : "70"}
           height={width < 1024 ? "45" : "74"}
           className="relative"
+          priority = {true}
         />
       </Link>
       <div
